@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organizations {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  email       String        @unique
+  mobile      String        @unique
+  address     String
+  desrciption String
+  status      Int           @default(1)
+  createdAt   DateTime      @default(now())
+  createdBy   Int
+  updatedAt   DateTime      @updatedAt
+  updatedBy   Int
+  Users       Users[]
+  Roles       Roles[]
+  Permissions Permissions[]
+  Routes      Routes[]
+  Actions     Actions[]
+}
+
+model Users {
+  id            Int           @id @default(autoincrement())
+  email         String        @unique
+  username      String        @unique
+  password      String
+  roles         Roles         @relation(fields: [role_id], references: [id])
+  role_id       Int
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+}
+
+model Roles {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  Users         Users[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+}
+
+model Permissions {
+  id            Int           @id @default(autoincrement())
+  roles         Roles         @relation(fields: [role_id], references: [id])
+  role_id       Int
+  routes        Routes        @relation(fields: [route_id], references: [id])
+  route_id      Int
+  actions       Actions       @relation(fields: [action_id], references: [id])
+  action_id     Int
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+}
+
+model Routes {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  path          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+}
+
+model Actions {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+}
