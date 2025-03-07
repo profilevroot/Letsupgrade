@@ -1,0 +1,959 @@
+2024-12-24T12:53:34.036Z [right meow!] error: 
+Invalid `prisma.actions.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2024-12-24T12:54:20.807Z [right meow!] error: 
+Invalid `prisma.actions.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2025-01-15T06:38:52.785Z [right meow!] error: 
+Invalid `prisma.users.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T06:39:20.392Z [right meow!] error: 
+Invalid `prisma.users.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:49:09.821Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:49:09.824Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:49:25.816Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:51:10.869Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:56:00.060Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:56:00.063Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T08:56:09.136Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T09:55:41.067Z [right meow!] error: 
+Invalid `prisma.users.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T09:57:26.338Z [right meow!] error: 
+Invalid `prisma.users.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T09:58:52.799Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T09:59:31.116Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T09:59:38.688Z [right meow!] error: 
+Invalid `prisma.actions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:00:15.158Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:02:43.507Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:02:45.138Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:02:46.794Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:03:13.424Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:03:40.669Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:03:48.781Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:04:12.434Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:04:32.855Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:05:19.553Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:05:49.952Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:06:14.179Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: NaN,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:19:28.524Z [right meow!] error: 
+Invalid `prisma.permissions.findMany()` invocation:
+
+{
+  skip: 10,
++ take: Int
+}
+
+Argument `take` is missing.
+2025-01-15T10:26:55.965Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+{
+  data: {
+    status: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   name: String
+  }
+}
+
+Argument `name` is missing.
+2025-01-15T10:28:34.821Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+{
+  data: {
+    status: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   name: String
+  }
+}
+
+Argument `name` is missing.
+2025-01-15T10:53:56.785Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T12:53:29.700Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T12:59:55.016Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T13:00:11.198Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T13:30:37.934Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T13:34:46.296Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T13:35:13.980Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-17T13:36:07.560Z [right meow!] error: 
+Invalid `prisma.actions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-01-20T11:04:25.921Z [right meow!] error: 
+Invalid `prisma.roles.delete()` invocation:
+
+
+Foreign key constraint violated: `Permissions_role_id_fkey (index)`
+2025-01-20T11:04:38.134Z [right meow!] error: 
+Invalid `prisma.roles.delete()` invocation:
+
+
+Foreign key constraint violated: `Permissions_role_id_fkey (index)`
+2025-01-20T12:21:34.720Z [right meow!] error: Cannot read properties of undefined (reading 'findMany')
+2025-01-20T17:53:04.940Z [right meow!] error: 
+Invalid `prisma.users.create()` invocation:
+
+{
+  data: {
+    email: "kanagarajvsr@gmail.com",
+    username: "kanagaraj r",
+    password: "$2a$10$M4Nmrv5AOJEjv4dGfJ4UVer5AUZANnA9r2a2t3MGlBRs.WzoZjndq",
+    status: 1,
+    role_id: "9",
+             ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `role_id`: Invalid value provided. Expected Int, provided String.
+2025-01-21T03:20:21.990Z [right meow!] error: 
+Invalid `prisma.users.update()` invocation:
+
+{
+  where: {
+    id: 2
+  },
+  data: {
+    email: "kanagarajvsr@gmail.com",
+    username: "kanagaraj",
+    role_id: "9",
+             ~~~
+    updatedBy: 1
+  }
+}
+
+Argument `role_id`: Invalid value provided. Expected Int or IntFieldUpdateOperationsInput, provided String.
+2025-01-21T14:57:32.739Z [right meow!] error: Maximum call stack size exceeded
+2025-01-21T14:57:51.268Z [right meow!] error: Maximum call stack size exceeded
+2025-01-21T14:58:16.572Z [right meow!] error: Cannot read properties of undefined (reading 'status')
+2025-03-02T05:54:32.899Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-624437",
+    subject: "sub",
+    date: new Date("2025-03-02T05:54:32.756Z"),
+    ~~~~
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: undefined,
+    category_id: "2",
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
+?   id?: Int,
+?   Priority?: Int,
+?   startDate?: DateTime,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   group_id?: Int,
+?   Questions?: QuestionsUncheckedCreateNestedManyWithoutTicketInput
+  }
+}
+
+Unknown argument `date`. Did you mean `name`? Available options are marked with ?.
+2025-03-02T05:57:25.010Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-296027",
+    subject: "sub",
+    date: new Date("2025-03-02T05:57:24.998Z"),
+    ~~~~
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: "2",
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
+?   id?: Int,
+?   Priority?: Int,
+?   startDate?: DateTime,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   group_id?: Int,
+?   Questions?: QuestionsUncheckedCreateNestedManyWithoutTicketInput
+  }
+}
+
+Unknown argument `date`. Did you mean `name`? Available options are marked with ?.
+2025-03-02T05:58:13.055Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-150176",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    ~~~~~~~~
+    category_id: "2",
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
+?   id?: Int,
+?   Priority?: Int,
+?   startDate?: DateTime,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   group_id?: Int,
+?   Questions?: QuestionsUncheckedCreateNestedManyWithoutTicketInput
+  }
+}
+
+Unknown argument `priority`. Did you mean `Priority`? Available options are marked with ?.
+2025-03-02T09:17:08.017Z [right meow!] error: 
+Invalid `prisma.ticket.findMany()` invocation:
+
+
+The column `Ticket.Priority` does not exist in the current database.
+2025-03-02T09:17:23.251Z [right meow!] error: 
+Invalid `prisma.ticket.findMany()` invocation:
+
+
+The column `Ticket.Priority` does not exist in the current database.
+2025-03-02T09:18:16.079Z [right meow!] error: 
+Invalid `prisma.ticket.findMany()` invocation:
+
+
+The column `Ticket.Priority` does not exist in the current database.
+2025-03-02T09:25:02.026Z [right meow!] error: 
+Invalid `prisma.ticket.findMany()` invocation:
+
+
+The column `Ticket.Priority` does not exist in the current database.
+2025-03-02T09:32:46.612Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test ticket",
+    ticketNo: "TS-861691",
+    subject: "test sub",
+    description: "desc",
+    labLink: "lab",
+    guidance: "guid",
+    status: 1,
+    priority: "low",
+    category_id: "3",
+                 ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `category_id`: Invalid value provided. Expected Int, provided String.
+2025-03-02T09:35:01.070Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-455044",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: "2",
+                 ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `category_id`: Invalid value provided. Expected Int, provided String.
+2025-03-02T09:37:51.288Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-951652",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: "2",
+                 ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `category_id`: Invalid value provided. Expected Int, provided String.
+2025-03-02T09:37:51.295Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:42:20.653Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-148151",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: "2",
+                 ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `category_id`: Invalid value provided. Expected Int, provided String.
+2025-03-02T09:42:20.662Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:48:45.981Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test",
+    ticketNo: "TS-710224",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: "2",
+                 ~~~
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `category_id`: Invalid value provided. Expected Int, provided String.
+2025-03-02T09:48:45.987Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:49:21.627Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:53:22.892Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q3",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:53:58.176Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:54:42.552Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T09:55:41.836Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-03-02T10:04:33.446Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q1",
+    status: 1,
+    ticket_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutQuestionsInput | OrganizationsUncheckedCreateWithoutQuestionsInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutQuestionsInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T10:05:34.099Z [right meow!] error: Cannot set headers after they are sent to the client
+2025-03-02T10:11:56.651Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-03-02T10:11:56.689Z [right meow!] error: 
+Invalid `prisma.answers.create()` invocation:
+
+{
+  data: {
+    name: "a2",
+    status: 1,
+    question_id: undefined,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutAnswersInput | OrganizationsUncheckedCreateWithoutAnswersInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutAnswersInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T10:16:47.554Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-03-02T10:18:08.677Z [right meow!] error: 
+Invalid `prisma.answers.create()` invocation:
+
+{
+  data: {
+    name: "a2",
+    status: 1,
+    question_id: 4,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutAnswersInput | OrganizationsUncheckedCreateWithoutAnswersInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutAnswersInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T10:19:21.191Z [right meow!] error: 
+Invalid `prisma.answers.create()` invocation:
+
+{
+  data: {
+    name: "a1e",
+    status: 1,
+    question_id: 5,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutAnswersInput | OrganizationsUncheckedCreateWithoutAnswersInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutAnswersInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T10:29:00.803Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+
+Unique constraint failed on the fields: (`name`)
+2025-03-02T10:32:42.383Z [right meow!] error: 
+Invalid `prisma.answers.create()` invocation:
+
+{
+  data: {
+    name: "a1e",
+    status: 1,
+    question_id: 7,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   organizations: {
++     create: OrganizationsCreateWithoutAnswersInput | OrganizationsUncheckedCreateWithoutAnswersInput,
++     connectOrCreate: OrganizationsCreateOrConnectWithoutAnswersInput,
++     connect: OrganizationsWhereUniqueInput
++   }
+  }
+}
+
+Argument `organizations` is missing.
+2025-03-02T10:40:22.861Z [right meow!] error: 
+Invalid `prisma.questions.create()` invocation:
+
+{
+  data: {
+    name: "q12w",
+    status: 1,
+    ticket_id: 19,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
+    ~~~~~~
+?   id?: Int,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   Answers?: AnswersUncheckedCreateNestedManyWithoutQuestionsInput
+  }
+}
+
+Unknown argument `org_id`. Available options are marked with ?.
+2025-03-02T10:43:08.090Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "test gggdfwssdddfhhs",
+    ticketNo: "TS-391019",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: 2
+  },
+  updatedBy: 1,
+  ~~~~~~~~~
+  createdBy: 1,
+  org_id: 1
+}
+
+Unknown argument `updatedBy`. Available options are marked with ?.
+2025-03-02T11:24:37.122Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "new name",
+    ticketNo: "TSO-621418",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: 2,
+    Questions: {
+      create: [
+        {}
+      ]
+    },
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `name` is missing.
+2025-03-02T11:25:40.289Z [right meow!] error: 
+Invalid `prisma.ticket.create()` invocation:
+
+{
+  data: {
+    name: "new name",
+    ticketNo: "TSO-608373",
+    subject: "sub",
+    description: "desc",
+    labLink: "link",
+    guidance: "guid",
+    status: 1,
+    priority: "medium",
+    category_id: 2,
+    Questions: {
+      create: [
+        {}
+      ]
+    },
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1
+  }
+}
+
+Argument `name` is missing.
+2025-03-02T11:31:17.238Z [right meow!] error: 
+Invalid `prisma.ticket.delete()` invocation:
+
+
+Foreign key constraint violated: `Questions_ticket_id_fkey (index)`
+2025-03-02T11:33:35.904Z [right meow!] error: 
+Invalid `prisma.ticket.delete()` invocation:
+
+
+Foreign key constraint violated: `Questions_ticket_id_fkey (index)`
+2025-03-02T11:33:55.446Z [right meow!] error: 
+Invalid `prisma.ticket.delete()` invocation:
+
+
+Foreign key constraint violated: `Questions_ticket_id_fkey (index)`

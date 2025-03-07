@@ -1,0 +1,200 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organizations {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  email       String        @unique
+  mobile      String        @unique
+  address     String
+  desrciption String
+  status      Int           @default(1)
+  createdAt   DateTime      @default(now())
+  createdBy   Int
+  updatedAt   DateTime      @updatedAt
+  updatedBy   Int
+  Users       Users[]
+  Roles       Roles[]
+  Permissions Permissions[]
+  Routes      Routes[]
+  Actions     Actions[]
+  Groups      Groups[]
+  Category    Category[]
+  Ticket      Ticket[]
+}
+
+model Groups {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  Users         Users[]
+  Roles         Roles[]
+  Permissions   Permissions[]
+  Routes        Routes[]
+  Actions       Actions[]
+  Category      Category[]
+  Ticket        Ticket[]
+}
+
+model Users {
+  id            Int           @id @default(autoincrement())
+  email         String        @unique @db.VarChar(191)
+  username      String        @db.VarChar(191)
+  password      String
+  roles         Roles         @relation(fields: [role_id], references: [id])
+  role_id       Int
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+}
+
+model Roles {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  Users         Users[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+}
+
+model Permissions {
+  id            Int           @id @default(autoincrement())
+  roles         Roles         @relation(fields: [role_id], references: [id])
+  role_id       Int
+  routes        Routes        @relation(fields: [route_id], references: [id])
+  route_id      Int
+  actions       Actions       @relation(fields: [action_id], references: [id])
+  action_id     Int
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+}
+
+model Routes {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  path          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+}
+
+model Actions {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  Permissions   Permissions[]
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+}
+
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+  Ticket        Ticket[]
+}
+
+model Ticket {
+  id            Int           @id @default(autoincrement())
+  name          String        
+  ticketNo      String        @unique
+  subject       String
+  description   String
+  labLink       String
+  guidance      String
+  status        Int           @default(1)
+  priority      String
+  startDate     DateTime      @default(now())
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  organizations Organizations @relation(fields: [org_id], references: [id])
+  org_id        Int
+  category      Category      @relation(fields: [category_id], references: [id])
+  category_id   Int
+  groups        Groups        @relation(fields: [group_id], references: [id])
+  group_id      Int           @default(1)
+  Questions     Questions[]
+}
+
+model Questions {
+  id            Int           @id @default(autoincrement())
+  name          String       
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  ticket        Ticket        @relation(fields: [ticket_id], references: [id])
+  ticket_id     Int
+  Answers       Answers[]
+}
+
+model Answers {
+  id            Int           @id @default(autoincrement())
+  name          String        
+  status        Int           @default(1)
+  createdAt     DateTime      @default(now())
+  createdBy     Int
+  updatedAt     DateTime      @updatedAt
+  updatedBy     Int
+  questions     Questions     @relation(fields: [questions_id], references: [id])
+  questions_id  Int
+}
