@@ -20,7 +20,7 @@ export default async function Sidebar() {
           `w-20 p-8  h-screen  bg-primary text-primary-foreground`
         )}
       >
-        <nav className="flex flex-col gap-8">
+        <nav className="flex flex-col items-center justify-between h-full">
           <Button className="text-4xl" variant="ghost">
             🏠
           </Button>
