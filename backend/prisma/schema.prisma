@@ -51,6 +51,11 @@ model Groups {
   Ticket        Ticket[]
 }
 
+enum UserType {
+  ADMIN
+  STUDENT
+}
+
 model Users {
   id            Int           @id @default(autoincrement())
   email         String        @unique @db.VarChar(191)
@@ -58,6 +63,7 @@ model Users {
   password      String
   roles         Roles         @relation(fields: [role_id], references: [id])
   role_id       Int
+  user_type     UserType      @default(ADMIN) // Default to STUDENT
   status        Int           @default(1)
   createdAt     DateTime      @default(now())
   createdBy     Int

@@ -3,6 +3,10 @@ import Sidebar from "@/components/layout/sidebar"; */
 import type { Metadata } from "next";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth-options";
+
 import { Button } from "@/components/ui/button";
 import { Home, History, LayoutDashboard, RefreshCw } from "lucide-react";
 
@@ -11,11 +15,15 @@ export const metadata: Metadata = {
   description: "Ticketing System",
 };
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
+  if (session?.user?.user_type !== "STUDENT") {
+    redirect(`/admin`);
+  }
   return (
     <>
       <div className="flex h-screen overflow-hidden">

@@ -93,6 +93,7 @@ class AuthController {
           oid: findUser.org_id,
           name: findUser.username,
           email: findUser.email,
+          user_type: findUser.user_type,
           roleId: findUser.roles.id,
         };
         const token = jwt.sign(payloadData, process.env.JWT_SECRET, {
@@ -140,6 +141,7 @@ class AuthController {
           routes: allRoutes,
           name: findUser.username,
           email: findUser.email,
+          user_type: findUser.user_type,
           routesActions: routesActions,
         });
       }

@@ -2,16 +2,21 @@ import { Metadata } from "next";
 import UserAuthForm from "@/components/forms/user-auth-form";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { fetchSession } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication forms built using the components.",
 };
 
-export default async function AuthenticationPage() {
-  const session = await getServerSession();
+export default async function AuthenticationPage({ ...rest }) {
+  const session = await fetchSession();
   if (session) {
-    redirect("/admin");
+    if (session?.user?.user_type === "ADMIN") {
+      redirect(`/admin`);
+    } else {
+      redirect(`/student`);
+    }
   }
   return (
     <div className="relative h-screen flex-col items-center justify-center ">

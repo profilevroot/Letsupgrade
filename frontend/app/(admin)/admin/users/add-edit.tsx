@@ -27,13 +27,20 @@ type propsTypes = {
   label: string;
 };
 
+const userType = [
+  { label: "Admin", value: "ADMIN" },
+  { label: "Student", value: "STUDENT" },
+];
+
 const formSchema = z.object({
   username: z.string().min(2),
   email: z.string().email({ message: "Enter a valid email address" }),
-  role_id: z.string().nonempty("You must select an option."),
+  role_id:   z.coerce.number({
+    invalid_type_error: "User type must be a number.",
+  }).int().positive("Select a valid user type."),
+  user_type: z.string().nonempty("Select an user type."),
 });
 export default function AddDialog({ item, action, label }: propsTypes) {
-  console.log("item", item);
   const router = useRouter();
   const { toast } = useToast();
 
@@ -44,9 +51,8 @@ export default function AddDialog({ item, action, label }: propsTypes) {
     const response = await get(`/roles-all`, {});
     const roleFormatted = response?.data?.data?.map((value) => ({
       label: value?.name,
-      value: `${value?.id}`,
+      value:value?.id,
     }));
-    console.log("response", roleFormatted);
     setRoles([...roleFormatted]);
   };
   React.useEffect(() => {
@@ -58,7 +64,8 @@ export default function AddDialog({ item, action, label }: propsTypes) {
     defaultValues: {
       username: item?.username || "",
       email: item?.email || "",
-      role_id: `${item?.role_id}` || "",
+      user_type: item?.user_type || "",
+      role_id: item?.role_id || "",
     },
   });
 
@@ -68,6 +75,7 @@ export default function AddDialog({ item, action, label }: propsTypes) {
         username: (values?.username).toLowerCase(),
         email: values?.email,
         role_id: values?.role_id,
+        user_type: values?.user_type,
       };
       if (action === "Update") {
         const response = await put(`/user/${item.id}`, value);
@@ -114,14 +122,15 @@ export default function AddDialog({ item, action, label }: propsTypes) {
           )}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>{label} user</DialogTitle>
         </DialogHeader>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <CardContent className="grid gap-4">
+            <CardContent className="grid   ">
+            <div className="grid grid-cols-2 gap-4">
               <FormInput
                 control={form.control}
                 name="username"
@@ -131,9 +140,18 @@ export default function AddDialog({ item, action, label }: propsTypes) {
               <FormSelect
                 name="role_id"
                 control={form.control}
-                label="Select an Option"
+                label="Select role"
                 options={roles}
               />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+              <FormSelect
+                name="user_type"
+                control={form.control}
+                label="Select user type"
+                options={userType}
+              />
+              </div>
             </CardContent>
             <DialogFooter>
               <Button type="submit">{action}</Button>

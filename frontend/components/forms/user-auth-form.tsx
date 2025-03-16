@@ -17,8 +17,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import GoogleSignInButton from "../github-auth-button";
 import { redirect } from "next/navigation";
-
-
+import { fetchSession } from "@/lib/utils";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Enter a valid email address" }),
@@ -43,23 +42,28 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
-   const result= await signIn("credentials", {
+    const result = await signIn("credentials", {
       email: data.email,
       password: data.password,
       callbackUrl: callbackUrl ?? "/admin",
       redirect: false,
     });
+
+    const session = await fetchSession();
     if (result?.ok) {
-      redirect(`/admin`);
-    }
-    else {
+      if (session?.user?.user_type === "ADMIN") {
+        redirect(`/admin`);
+      } else {
+        redirect(`/student`);
+      }
+    } else {
       setError(result?.error || "Invalid username or password");
-    } 
+    }
   };
 
   return (
     <>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <Form {...form}>
         <form

@@ -957,3 +957,47 @@ Invalid `prisma.ticket.delete()` invocation:
 
 
 Foreign key constraint violated: `Questions_ticket_id_fkey (index)`
+2025-03-08T02:10:18.696Z [right meow!] error: 
+Invalid `prisma.users.create()` invocation:
+
+{
+  data: {
+    email: "kanagarajvsr@gmail.com",
+    username: "kanagarajvsr@gmail.com",
+    password: "$2a$10$gnmpeBL69AwhoOnJroqRXOs.5S/yolzKw3SlFL4u0ONEmL8NP43SG",
+    status: 1,
+    role_id: NaN,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   roles: {
++     create: RolesCreateWithoutUsersInput | RolesUncheckedCreateWithoutUsersInput,
++     connectOrCreate: RolesCreateOrConnectWithoutUsersInput,
++     connect: RolesWhereUniqueInput
++   }
+  }
+}
+
+Argument `roles` is missing.
+2025-03-08T02:11:13.661Z [right meow!] error: 
+Invalid `prisma.users.create()` invocation:
+
+{
+  data: {
+    email: "kanagarajvsr@gmail.com",
+    username: "kanagarajvsr@gmail.com",
+    password: "$2a$10$gnmpeBL69AwhoOnJroqRXOs.5S/yolzKw3SlFL4u0ONEmL8NP43SG",
+    status: 1,
+    role_id: NaN,
+    updatedBy: 1,
+    createdBy: 1,
+    org_id: 1,
++   roles: {
++     create: RolesCreateWithoutUsersInput | RolesUncheckedCreateWithoutUsersInput,
++     connectOrCreate: RolesCreateOrConnectWithoutUsersInput,
++     connect: RolesWhereUniqueInput
++   }
+  }
+}
+
+Argument `roles` is missing.

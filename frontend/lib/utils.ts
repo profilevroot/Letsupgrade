@@ -20,3 +20,15 @@ export const getRoutesActions = (data: any[]) =>
 export function checkActionPermission(actions: string[], action: string) {
   return actions.includes(action);
 }
+
+export const fetchSession = async () => {
+  try {
+    const session = await fetch("/api/auth/session").then((res) => res.json());
+    return session;
+  }
+  catch (error) {
+   // console.error(error);
+  }
+};
+ 
+ 

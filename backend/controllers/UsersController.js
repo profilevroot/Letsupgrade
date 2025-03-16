@@ -34,6 +34,7 @@ class UsersController {
     const updateData = {
       email: req.body.email,
       username: req.body.username,
+      user_type: req.body.user_type,
      // password: req.body.password,
        role_id: Number(req.body.role_id),
     };
@@ -47,6 +48,7 @@ class UsersController {
       email: req.body.email,
       username: req.body.username,
       password: hashedPassword,
+      user_type: user_type,
       status: 1,
       role_id: Number(req.body.role_id)
     };

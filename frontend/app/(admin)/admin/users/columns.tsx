@@ -15,6 +15,10 @@ export const columns = ({ actions, appUrl, apiUrl, sno, extraData }) => [
     header: "Name",
   },
   {
+    accessorKey: "user_type",
+    header: "User type",
+  },
+  {
     accessorKey: "email",
     header: "E-mail",
   },

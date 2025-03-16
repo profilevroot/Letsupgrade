@@ -94,6 +94,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
         token.email = user.email;
+        token.user_type = user.user_type;
         token.role = user.role;
         token.name = user.name;
         token.routes = user.routes;
