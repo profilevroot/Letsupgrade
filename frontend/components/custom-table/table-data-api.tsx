@@ -29,14 +29,8 @@ export default async function TableDataAPI({
     return <NoPermission action="views" />;
   }
   const { limit, page } = await searchParams;
-
-  console.log("testinf", limit, page);
-
   const response = await get(apiUrl + `/?limit=${limit}&page=${page}`, {});
   const queryData = response?.data;
-
-  console.log(actions, response?.data);
-
   return (
     <>
       <div className=" p-2 md:p-4 ">
