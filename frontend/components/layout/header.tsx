@@ -4,7 +4,7 @@ import { MobileSidebar } from "./mobile-sidebar";
 import { UserNav } from "./user-nav";
 import Image from "next/image";
 
-export default function Header() {
+export default function Header({navItem}) {
   return (
     <div className="fixed top-0 left-0 right-0 border-b backdrop-blur z-20 bg-primary text-primary-foreground">
       <nav className="h-14 flex items-center justify-between px-4">
@@ -13,7 +13,7 @@ export default function Header() {
           Ticketing System
         </div>
         <div className={cn("block lg:!hidden")}>
-          <MobileSidebar />
+          <MobileSidebar navItem={navItem} />
         </div>
 
         <div className="flex items-center gap-2">

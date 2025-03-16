@@ -35,11 +35,16 @@ const userType = [
 const formSchema = z.object({
   username: z.string().min(2),
   email: z.string().email({ message: "Enter a valid email address" }),
-  role_id:   z.coerce.number({
-    invalid_type_error: "User type must be a number.",
-  }).int().positive("Select a valid user type."),
+  role_id: z.coerce
+    .number({
+      invalid_type_error: "User type must be a number.",
+    })
+    .int()
+    .positive("Select a valid user type."),
   user_type: z.string().nonempty("Select an user type."),
 });
+
+
 export default function AddDialog({ item, action, label }: propsTypes) {
   const router = useRouter();
   const { toast } = useToast();
@@ -51,7 +56,7 @@ export default function AddDialog({ item, action, label }: propsTypes) {
     const response = await get(`/roles-all`, {});
     const roleFormatted = response?.data?.data?.map((value) => ({
       label: value?.name,
-      value:value?.id,
+      value: value?.id,
     }));
     setRoles([...roleFormatted]);
   };
@@ -130,27 +135,27 @@ export default function AddDialog({ item, action, label }: propsTypes) {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardContent className="grid   ">
-            <div className="grid grid-cols-2 gap-4">
-              <FormInput
-                control={form.control}
-                name="username"
-                label="Usermame"
-              />
-              <FormInput control={form.control} name="email" label="E-mail" />
-              <FormSelect
-                name="role_id"
-                control={form.control}
-                label="Select role"
-                options={roles}
-              />
+              <div className="grid grid-cols-2 gap-4">
+                <FormInput
+                  control={form.control}
+                  name="username"
+                  label="Usermame"
+                />
+                <FormInput control={form.control} name="email" label="E-mail" />
+                <FormSelect
+                  name="role_id"
+                  control={form.control}
+                  label="Select role"
+                  options={roles}
+                />
               </div>
               <div className="grid grid-cols-2 gap-4">
-              <FormSelect
-                name="user_type"
-                control={form.control}
-                label="Select user type"
-                options={userType}
-              />
+                <FormSelect
+                  name="user_type"
+                  control={form.control}
+                  label="Select user type"
+                  options={userType}
+                />
               </div>
             </CardContent>
             <DialogFooter>

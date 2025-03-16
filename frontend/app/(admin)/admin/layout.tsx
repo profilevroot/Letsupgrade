@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth-options";
+import { navItems } from "@/constants/data";
 
 export const metadata: Metadata = {
   title: "Ticketing System",
@@ -19,12 +20,16 @@ export default async function DashboardLayout({
   const session = await getServerSession(authOptions);
   if (session?.user?.user_type !== "ADMIN") {
     redirect(`/student`);
+  } 
+  const NavItems = navItems.filter((navItem) =>{
+    return session?.user?.routes.includes(navItem?.href)
   }
+);  
   return (
     <>
-      <Header />
+      <Header navItem={NavItems} />
       <div className="flex h-screen overflow-hidden">
-        <Sidebar />
+        <Sidebar navItem={NavItems} />
         <main className="w-full pt-12">{children}</main>
       </div>
     </>

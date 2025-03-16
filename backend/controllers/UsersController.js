@@ -48,7 +48,7 @@ class UsersController {
       email: req.body.email,
       username: req.body.username,
       password: hashedPassword,
-      user_type: user_type,
+      user_type:  req.body.user_type,
       status: 1,
       role_id: Number(req.body.role_id)
     };

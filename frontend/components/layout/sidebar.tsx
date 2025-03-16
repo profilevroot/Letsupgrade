@@ -1,17 +1,8 @@
 import { DashboardNav } from "@/components/dashboard-nav";
-import { navItems } from "@/constants/data";
-import { serverSession } from "@/lib/session";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "../ui/scroll-area";
 
-export default async function Sidebar() {
-  const session = await serverSession();
-  //console.log("navItem===>",session)
-  const filteredNavItems = navItems.filter((navItem) =>{
-//console.log("navItem",navItem)
-    return session?.routes.includes(navItem?.href)
-  }
-  );
+export default async function Sidebar({navItem}) { 
   return (
     <nav
       className={cn(
@@ -23,7 +14,7 @@ export default async function Sidebar() {
         <div className="px-3 py-2">
           <div className="space-y-1">
 
-            <DashboardNav items={navItems} />
+            <DashboardNav items={navItem} />
           </div>
         </div>
       </div>
