@@ -181,6 +181,52 @@ async function ReadAllPermissionByRoleId(model, id, req, res) {
   }
 }
 
+async function ReadAllTicketsByCategoryId(model, id, page = 0, pageSize = 10, req, res, include = {}) {
+  try {
+    isNaN(page) ? (page = 0) : page; // Adjust page number
+    isNaN(pageSize) ? (pageSize = 10) : pageSize; // Adjust page number
+    const skip = page * pageSize; // Calculate the offset
+   
+    const sharedWhereClause = {
+      status: 1,
+      category_id: id,
+    };
+
+    const [data, totalCount] = await prisma.$transaction([
+      prisma[model].findMany({
+        where: sharedWhereClause,
+        skip: skip,
+        take: pageSize,
+        orderBy: {
+          createdAt: 'desc',
+        },
+        include: include,
+      }),
+      prisma[model].count({
+        where: sharedWhereClause,
+      })     
+    ]);
+    
+    const totalPages = Math.ceil(totalCount / pageSize); // Calculate total pages
+   
+    return res.status(200).json({
+      data,
+      totalCount,
+      totalPages,
+      currentPage: page,
+      pageSize,
+    });
+    
+  } catch (error) {
+    console.error("Error fetching paginated data:", error);
+    logger.error(error);
+    return res.status(500).json({
+      message: `Something went wrong with ${model}.Please try again.`,
+    });
+  }
+}
+
+
 export {
   Read,
   ReadById,
@@ -189,4 +235,5 @@ export {
   Create,
   ReadAll,
   ReadAllPermissionByRoleId,
+  ReadAllTicketsByCategoryId,
 };

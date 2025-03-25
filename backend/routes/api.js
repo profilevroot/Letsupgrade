@@ -64,7 +64,8 @@ router.get("/tickets-all", authMiddleware, TicketController.readAll);
 router.get("/ticket/:id", authMiddleware, TicketController.readById);
 router.put("/ticket/:id", authMiddleware, TicketController.update);
 router.post("/ticket", authMiddleware, TicketController.create);
-router.delete("/ticket/:id", authMiddleware, TicketController.delete); 
+router.delete("/ticket/:id", authMiddleware, TicketController.delete);
+router.get("/tickets-by-category/:categoryId", authMiddleware, TicketController.readByCategoryId); 
 
 // Roles
 router.get("/roles", authMiddleware, RolesController.read);

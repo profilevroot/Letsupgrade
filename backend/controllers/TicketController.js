@@ -1,4 +1,4 @@
-import { Read, ReadById, Update, Create, Delete, ReadAll } from "./helper.js";
+import { Read, ReadById, Update, Create, Delete, ReadAll, ReadAllTicketsByCategoryId } from "./helper.js";
 import bcrypt from "bcryptjs";
 import prisma from "../config/db.config.js";
 
@@ -26,6 +26,22 @@ class TicketController {
 
   static async readAll(req, res) {
     const result = await ReadAll(model, req, res);
+    return result;
+  }
+
+  static async readByCategoryId(req, res) {
+    const page = Number(req.query.page);
+    const pageSize = Number(req.query.limit);
+    const id = Number(req.params.categoryId);
+    const include = {
+      Questions: {
+        include: {
+          Answers: true,
+        },
+      },
+    };
+
+    const result = await ReadAllTicketsByCategoryId(model, id, page, pageSize, req, res, include);    
     return result;
   }
 
