@@ -1,34 +1,30 @@
 name: Threagile Threat Modeling
 
 on:
-  workflow_dispatch:   # run manually
+  workflow_dispatch:   # Manual trigger
   push:
     branches:
-      - main
-  pull_request:
+      - main          # Trigger on pushes to main
+  pull_request:       # Trigger on PRs
 
 jobs:
   threagile:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout your repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Pull official Threagile image
-        run: docker pull ghcr.io/threagile/threagile:latest
+      # Step 2: Pull public Threagile Docker image from Docker Hub
+      - name: Pull Threagile Docker image
+        run: docker pull threagile/threagile:latest
 
+      # Step 3: Run Threagile on your model.yaml
       - name: Run Threagile
         run: |
           mkdir -p output
           docker run --rm \
             -v ${{ github.workspace }}:/data \
-            ghcr.io/threagile/threagile:latest \
-            -model /data/model.yaml \
-            -output /data/output
-
-      - name: Upload Threagile reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: threagile-reports
-          path: output/
+            threagile/threagile:latest \
+            -model /data/m
