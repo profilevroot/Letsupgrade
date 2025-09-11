@@ -4,7 +4,7 @@ on:
   workflow_dispatch:   # run manually
   push:
     branches:
-      - main          # or whatever branch you want
+      - main
   pull_request:
 
 jobs:
@@ -15,15 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Threagile Docker image
-        run: docker build -t threagile-local .
+      - name: Pull official Threagile image
+        run: docker pull ghcr.io/threagile/threagile:latest
 
       - name: Run Threagile
         run: |
           mkdir -p output
           docker run --rm \
             -v ${{ github.workspace }}:/data \
-            threagile-local \
+            ghcr.io/threagile/threagile:latest \
             -model /data/model.yaml \
             -output /data/output
 
