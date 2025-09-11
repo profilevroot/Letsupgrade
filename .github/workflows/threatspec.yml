@@ -22,6 +22,10 @@ jobs:
     - name: Install ThreatSpec
       run: pip install threatspec
 
+    - name: Show Current Directory
+      run: pwd
+
+
     - name: Initialize ThreatSpec
       run: |
         if [ ! -f threatspec/threatspec.yaml ]; then
