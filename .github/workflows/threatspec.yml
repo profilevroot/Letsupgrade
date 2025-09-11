@@ -11,35 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repo
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    # Step 2: Set up Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'  # Use latest stable Python
+        python-version: '3.11'
 
-    # Step 3: Install ThreatSpec
     - name: Install ThreatSpec
       run: pip install threatspec
 
-    # Step 4: Initialize ThreatSpec (only if not initialized)
     - name: Initialize ThreatSpec
       run: |
         if [ ! -f threatspec/threatspec.yaml ]; then
           threatspec init
         fi
 
-    # Step 5: Generate Threat Model Reports
-   - name: Scan & Generate Threat Reports
-     run: threatspec scan --all
+    - name: Scan & Generate Threat Reports
+      run: threatspec scan --all
 
-
-    # Step 6: Upload Threat Reports as Artifacts
     - name: Upload Threat Reports
       uses: actions/upload-artifact@v4
       with:
         name: threatspec-report
         path: threatspec/reports/
+
