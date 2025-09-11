@@ -1,0 +1,34 @@
+name: Threagile Threat Modeling
+
+on:
+  workflow_dispatch:   # run manually
+  push:
+    branches:
+      - main          # or whatever branch you want
+  pull_request:
+
+jobs:
+  threagile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Threagile Docker image
+        run: docker build -t threagile-local .
+
+      - name: Run Threagile
+        run: |
+          mkdir -p output
+          docker run --rm \
+            -v ${{ github.workspace }}:/data \
+            threagile-local \
+            -model /data/model.yaml \
+            -output /data/output
+
+      - name: Upload Threagile reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: threagile-reports
+          path: output/
