@@ -33,8 +33,9 @@ jobs:
         fi
 
     # Step 5: Generate Threat Model Reports
-    - name: Generate Threat Model
-      run: threatspec generate
+   - name: Scan & Generate Threat Reports
+     run: threatspec scan --all
+
 
     # Step 6: Upload Threat Reports as Artifacts
     - name: Upload Threat Reports
