@@ -33,7 +33,7 @@ jobs:
         fi
         
     - name: Copy ThreatSpec Config to Repo Root
-      run: cp threatspec/models/threatspec.yaml threatspec.yaml
+      run: cp /home/runner/work/Letsupgrade/Letsupgrade/threatspec/models/threatspec.yaml threatspec.yaml
       
     - name: Install Graphviz
       run: sudo apt-get update && sudo apt-get install -y graphviz
