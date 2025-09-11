@@ -1,33 +1,31 @@
-title: "Sample Web App Threat Model"
-author: "Your Name"
-date: "2025-09-11"
+name: Threagile Threat Model
 
-technical_assets:
-  webapp:
-    id: webapp
-    description: Public Web Application
-    type: web-server
-    usage: business
-    confidentiality: confidential
-    integrity: critical
-    availability: critical
-    internet: true
+on:
+  workflow_dispatch:
 
-  database:
-    id: database
-    description: Backend Database
-    type: database
-    usage: business
-    confidentiality: strictly-confidential
-    integrity: critical
-    availability: important
+jobs:
+  threagile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-communication_links:
-  webapp_to_db:
-    source: webapp
-    target: database
-    protocol: sql
-    authentication: credentials
-    confidentiality: confidential
-    integrity: critical
-    availability: important
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Build Threagile
+        run: |
+          git clone https://github.com/Threagile/threagile tools/threagile
+          cd tools/threagile
+          go build -o ../../threagile-local .
+
+      - name: Run Threagile
+        run: ./threagile-local --model threatspec/models/threagile.yaml --output threatspec/reports
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: threagile-reports
+          path: threatspec/reports
