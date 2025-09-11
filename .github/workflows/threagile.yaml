@@ -1,33 +1,32 @@
-name: Threagile CI
+name: Threagile CI using Docker
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   threat-model:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Install Threagile
+    - name: Ensure Reports Folder Exists
+      run: mkdir -p reports
+
+    - name: Run Threagile via Docker
       run: |
-        wget https://github.com/Threagile/threagile/releases/latest/download/threagile-linux-amd64
-        chmod +x threagile-linux-amd64
-        sudo mv threagile-linux-amd64 /usr/local/bin/threagile
-
-    - name: Validate Model
-      run: threagile validate --model threatspec/models/generic.yaml
-
-    - name: Run Threagile Report
-      run: threagile report --model threatspec/models/generic.yaml --output reports
+        docker pull threagile/threagile:latest
+        docker run --rm -v "${{ github.workspace }}":/work -w /work threagile/threagile \
+          --model ./threagile.yaml \
+          --output ./reports \
+          --verbose
 
     - name: Upload Reports
       uses: actions/upload-artifact@v4
       with:
         name: threagile-reports
-        path: threatspec/reports/
+        path: .
