@@ -28,8 +28,11 @@ jobs:
           threatspec init
         fi
 
+    - name: running 
+      run: threatspec run
+
     - name: Scan & Generate Threat Reports
-      run: threatspec scan --all
+      run: threatspec report
 
     - name: Upload Threat Reports
       uses: actions/upload-artifact@v4
