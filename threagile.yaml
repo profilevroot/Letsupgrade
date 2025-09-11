@@ -1,76 +1,132 @@
-e: generic-webapp
-type: web-application
-description: Generic web application system
+threagile_version: "1.0.0"
 
-# System Assets (Information/Data)
-assets:
-  - name: customer_data
-    type: database
-    description: Stores user and customer information
-    confidentiality: high
-    integrity: high
-    availability: medium
+title: "React.js Application Threat Model"
+date: "2025-09-11"
+author:
+  name: "Your Name"
+  homepage: "https://your-company.com"
 
-  - name: session_tokens
-    type: secret
-    description: User session tokens
-    confidentiality: high
-    integrity: medium
-    availability: medium
+business_criticality: "high"
+business_overview:
+  description: |
+    A single-page application (SPA) built with React.js that provides an interactive
+    user interface. It communicates with a separate backend API to fetch and
+    manipulate data.
+  tags_available:
+    - "react-app"
+    - "spa"
+    - "api"
+    - "frontend"
+    - "backend"
 
-  - name: api_keys
-    type: secret
-    description: Keys for external services
-    confidentiality: high
-    integrity: high
-    availability: medium
+data_assets:
+  user_session_token:
+    description: "Authentication token stored in browser storage."
+    data_format: "JWT"
+    quantity: "many"
+    value: "high"
+    is_sensitive: true
+    origin: "system"
+    owner: "DevOps Team"
 
-# Components (Technical Assets)
+  user_data:
+    description: "User profile information."
+    data_format: "JSON"
+    quantity: "hundreds"
+    value: "high"
+    is_sensitive: true
+    origin: "user"
+    owner: "Product Team"
+
 technical_assets:
-  - name: web_server
-    type: web-server
-    description: Public-facing web application server
-    internet: true
-    encryption: tls
-    hosts_assets:
-      - session_tokens
+  # The React.js frontend, served as static files
+  react_frontend:
+    description: "The static React.js files (HTML, CSS, JS) served to the user's browser."
+    type: "web-client"
+    usage: "frontend"
+    technology: "React.js"
+    tags:
+      - "react-app"
+      - "spa"
+      - "frontend"
+    confidentiality: "low"
+    availability: "high"
+    integrity: "medium"
+    communication_links:
+      - target: "backend_api"
+        protocol: "https"
+        description: "API calls to the backend."
+        data_assets_sent:
+          - "user_session_token"
+          - "user_data"
+        data_assets_received:
+          - "user_data"
 
-  - name: api_server
-    type: api
-    description: Handles business logic
-    internet: true
-    encryption: tls
-    hosts_assets:
-      - api_keys
-      - customer_data
+  # The Web Server hosting the static files
+  static_file_server:
+    description: "Web server that serves the static React.js files."
+    type: "web-server"
+    usage: "frontend"
+    technology: "Nginx"
+    communication_links:
+      - target: "react_frontend"
+        protocol: "https"
+        description: "Serves static files to the browser."
 
-  - name: database
-    type: database
-    description: Stores customer and transactional data
-    encryption: aes256
-    hosts_assets:
-      - customer_data
+  # The Backend API
+  backend_api:
+    description: "RESTful API handling business logic and data persistence."
+    type: "application"
+    usage: "backend"
+    technology: "Node.js"
+    tags:
+      - "api"
+      - "backend"
+    confidentiality: "high"
+    availability: "high"
+    integrity: "high"
+    communication_links:
+      - target: "database"
+        protocol: "tcp"
+        description: "Queries and updates the database."
+        data_assets_sent:
+          - "user_data"
+        data_assets_received:
+          - "user_data"
 
-  - name: external_service
-    type: external-service
-    description: Third-party service (payment, email, etc.)
+  # The Database
+  database:
+    description: "Database storing all user and application data."
+    type: "datastore"
+    usage: "backend"
+    technology: "PostgreSQL"
+    confidentiality: "very-high"
+    availability: "high"
+    integrity: "very-high"
+    data_assets_stored:
+      - "user_data"
 
-# Communication Links
-communication:
-  - source: web_server
-    target: api_server
-    protocol: https
-    authentication: token
-    description: Web frontend calls API
+trust_boundaries:
+  # This boundary separates the public internet from the static file server
+  public_internet_boundary:
+    description: "Separates the user's browser from the web server."
+    type: "network-boundary"
+    technical_assets_separated:
+      - "static_file_server"
+      - "internet"
 
-  - source: api_server
-    target: database
-    protocol: sql
-    authentication: password
-    description: API queries customer database
+  # This boundary separates the frontend from the backend
+  frontend_backend_boundary:
+    description: "Separates the frontend client (in the browser) from the backend API."
+    type: "network-boundary"
+    technical_assets_separated:
+      - "react_frontend"
+      - "backend_api"
 
-  - source: api_server
-    target: external_service
-    protocol: https
-    authentication: api_key
-    description: API calls external services
+  # This boundary separates the backend from the database
+  internal_api_boundary:
+    description: "Separates the backend API from the database."
+    type: "network-boundary"
+    technical_assets_separated:
+      - "backend_api"
+      - "database"
