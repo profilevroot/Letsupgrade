@@ -1,0 +1,76 @@
+e: generic-webapp
+type: web-application
+description: Generic web application system
+
+# System Assets (Information/Data)
+assets:
+  - name: customer_data
+    type: database
+    description: Stores user and customer information
+    confidentiality: high
+    integrity: high
+    availability: medium
+
+  - name: session_tokens
+    type: secret
+    description: User session tokens
+    confidentiality: high
+    integrity: medium
+    availability: medium
+
+  - name: api_keys
+    type: secret
+    description: Keys for external services
+    confidentiality: high
+    integrity: high
+    availability: medium
+
+# Components (Technical Assets)
+technical_assets:
+  - name: web_server
+    type: web-server
+    description: Public-facing web application server
+    internet: true
+    encryption: tls
+    hosts_assets:
+      - session_tokens
+
+  - name: api_server
+    type: api
+    description: Handles business logic
+    internet: true
+    encryption: tls
+    hosts_assets:
+      - api_keys
+      - customer_data
+
+  - name: database
+    type: database
+    description: Stores customer and transactional data
+    encryption: aes256
+    hosts_assets:
+      - customer_data
+
+  - name: external_service
+    type: external-service
+    description: Third-party service (payment, email, etc.)
+
+# Communication Links
+communication:
+  - source: web_server
+    target: api_server
+    protocol: https
+    authentication: token
+    description: Web frontend calls API
+
+  - source: api_server
+    target: database
+    protocol: sql
+    authentication: password
+    description: API queries customer database
+
+  - source: api_server
+    target: external_service
+    protocol: https
+    authentication: api_key
+    description: API calls external services
