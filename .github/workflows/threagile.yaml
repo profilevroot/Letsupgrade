@@ -1,32 +1,33 @@
-name: Threagile CI using Docker
+title: "Sample Web App Threat Model"
+author: "Your Name"
+date: "2025-09-11"
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+technical_assets:
+  webapp:
+    id: webapp
+    description: Public Web Application
+    type: web-server
+    usage: business
+    confidentiality: confidential
+    integrity: critical
+    availability: critical
+    internet: true
 
-jobs:
-  threat-model:
-    runs-on: ubuntu-latest
+  database:
+    id: database
+    description: Backend Database
+    type: database
+    usage: business
+    confidentiality: strictly-confidential
+    integrity: critical
+    availability: important
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    - name: Ensure Reports Folder Exists
-      run: mkdir -p reports
-
-    - name: Run Threagile via Docker
-      run: |
-        docker pull threagile/threagile:latest
-        docker run --rm -v "${{ github.workspace }}":/work -w /work threagile/threagile \
-          --model ./threagile.yaml \
-          --output ./reports \
-          --verbose
-
-    - name: Upload Reports
-      uses: actions/upload-artifact@v4
-      with:
-        name: threagile-reports
-        path: .
+communication_links:
+  webapp_to_db:
+    source: webapp
+    target: database
+    protocol: sql
+    authentication: credentials
+    confidentiality: confidential
+    integrity: critical
+    availability: important
