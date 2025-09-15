@@ -27,7 +27,7 @@ jobs:
           python my_threat_model.py --dfd --seq --report report.md
 
       - name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: threat-model-report
           path: report.md
