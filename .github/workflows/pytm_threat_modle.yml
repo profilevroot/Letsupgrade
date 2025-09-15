@@ -1,33 +1,28 @@
-name: Threat Modeling with PyTM
+    name: Threagile Threat Model Analysis
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    on:
+      push:
+        paths:
+          - 'threagile.yaml' # Trigger this workflow when threagile.yaml changes
+      workflow_dispatch: # Allows manual triggering of the workflow
 
-jobs:
-  pytm-model:
-    runs-on: ubuntu-latest
+    jobs:
+      threagile_job:
+        runs-on: ubuntu-latest
+        name: Threat Model Analysis
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+        steps:
+          - name: Checkout Workspace
+            uses: actions/checkout@v4 # Use the latest version of checkout action
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+          - name: Run Threagile
+            id: threagile
+            uses: threagile/run-threagile-action@v1 # Use the Threagile GitHub Action
+            with:
+              model-file: 'threagile.yaml' # Specify the path to your Threagile model file
 
-      - name: Install PyTM
-        run: pip install pytm graphviz
-
-      - name: Generate Threat Model Report
-        run: |
-          python my_threat_model.py --dfd --seq --report report.md
-
-      - name: Upload Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: threat-model-report
-          path: report.md
+          - name: Archive Results
+            uses: actions/upload-artifact@v4 # Use the latest version of upload-artifact action
+            with:
+              name: threagile-report
+              path: threagile/output # Path where Threagile outputs its results
