@@ -1,0 +1,33 @@
+name: Threat Modeling with PyTM
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pytm-model:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install PyTM
+        run: pip install pytm graphviz
+
+      - name: Generate Threat Model Report
+        run: |
+          python my_threat_model.py --dfd --seq --report report.md
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: threat-model-report
+          path: report.md
